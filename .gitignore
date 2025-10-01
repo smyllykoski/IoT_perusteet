@@ -1,3 +1,6 @@
 # Git ignore file 
 /Backend/node_modules
 /Lesson_3/node_modules
+/Lesson_4/node_modules
+/Lesson_4/Webhook/node_modules
+/Lesson_4/Websocket/node_modules
