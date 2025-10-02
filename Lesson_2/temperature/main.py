@@ -1,12 +1,17 @@
 import network       # For Wi-Fi connectivity
 import time          # For delays and timing
 import urequests     # For making HTTP requests
+import json          # For handling JSON data
 import dht           # For interfacing with DHT sensors
 from machine import Pin  # For controlling GPIO pins
 
 # Wi-Fi credentials
 ssid = 'Wokwi-GUEST'     # SSID of the Wi-Fi network
 password = ''            # Password (empty for open networks like Wokwi-GUEST)
+
+url = "http://<SERVER_IP>:3000/webhook"  # Replace <SERVER_IP> with the actual server IP address
+data = {"temperature": 23.5, "humidity": 55}
+urequests.post(url, data=json.dumps(data), headers={"Content-Type": "application/json"})
 
 # ThingSpeak API configuration
 THINGSPEAK_API_KEY = '5FD3IECSYR6F4TMD'  # Your ThingSpeak Write API Key
