@@ -21,25 +21,25 @@ This repository contains all exercises and projects from my IoT software course 
 ### **<a href="https://github.com/smyllykoski/IoT_perusteet/tree/main/Lesson_2">Lesson 2:</a> Backend Integration**
 
 **Folders:**  
-- `Backend` – Node.js server with REST API endpoints.  
-- `temperature` – MicroPython project sending sensor data to ThingSpeak.  
+- `Backend` &mdash; Node.js server with REST API endpoints.  
+- `temperature` &mdash; MicroPython project sending sensor data to ThingSpeak.  
 
 ---
 
 ### **<a href="https://github.com/smyllykoski/IoT_perusteet/tree/main/Lesson_3">Lesson 3:</a> Databases and Persistent Storage**
 
 **Files:**  
-- `server.js` – Node.js server using SQLite to store and retrieve user data.  
+- `server.js` &mdash; Node.js server using SQLite to store and retrieve user data.  
 
 ---
 
 ### **<a href="https://github.com/smyllykoski/IoT_perusteet/tree/main/Lesson_4">Lesson 4:</a> Real-Time Communication and Dashboards**
 
 **Folders:**  
-- `Fetch` – Fetch sensor data from ThingSpeak using JavaScript.  
-- `GoogleChart` – Display ThingSpeak data as a Google Chart.  
-- `Webhook` – Node.js server receiving POST requests to trigger actions (e.g., Discord notifications).  
-- `Websocket` – WebSocket client and server example for real-time sensor updates.  
+- `Fetch` &mdash; Fetch sensor data from ThingSpeak using JavaScript.  
+- `GoogleChart` &mdash; Display ThingSpeak data as a Google Chart.  
+- `Webhook` &mdash; Node.js server receiving POST requests to trigger actions (e.g., Discord notifications).  
+- `Websocket` &mdash; WebSocket client and server example for real-time sensor updates.  
 
 ---
 
