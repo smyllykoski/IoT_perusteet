@@ -45,11 +45,11 @@ This project demonstrates basic LED control, loops, and conditional input on the
 The main script blinks the onboard LED, and the additional exercises (`tehtava1.py`, `tehtava2.py`) illustrate loops and conditional statements.
 
 <b>Files:</b>
-- **main.py** – Blinks the onboard LED with a 1-second interval.
-- **tehtava1.py** – Demonstrates a simple `for` loop that counts from 0 to 9 and prints each iteration.
-- **tehtava2.py** – Demonstrates user input and conditionals. It asks for a name and prints a message based on the input.
-- **diagram.json** – Wokwi wiring diagram (uses the built-in LED).
-- **wokwi-project.txt** – Wokwi project link.
+- **main.py** &mdash; Blinks the onboard LED with a 1-second interval.
+- **tehtava1.py** &mdash; Demonstrates a simple `for` loop that counts from 0 to 9 and prints each iteration.
+- **tehtava2.py** &mdash; Demonstrates user input and conditionals. It asks for a name and prints a message based on the input.
+- **diagram.json** &mdash; Wokwi wiring diagram (uses the built-in LED).
+- **wokwi-project.txt** &mdash; Wokwi project link.
 
 <b>Hardware required:</b>
 - ESP32 (or any board with an onboard LED pin).
@@ -75,9 +75,9 @@ This project demonstrates how to use a PIR motion sensor with an ESP32 to detect
 When motion is detected, a message is printed to the serial console, and the onboard LED flashes as a visual alarm.
 
 <b>Files:</b>
-- **main.py** – Reads the PIR sensor and flashes the onboard LED when motion is detected.
-- **diagram.json** – Wokwi wiring diagram showing the PIR sensor and ESP32 connections.
-- **wokwi-project.txt** – Wokwi project link.
+- **main.py** &mdash; Reads the PIR sensor and flashes the onboard LED when motion is detected.
+- **diagram.json** &mdash; Wokwi wiring diagram showing the PIR sensor and ESP32 connections.
+- **wokwi-project.txt** &mdash; Wokwi project link.
 
 <b>Hardware required:</b>
 - ESP32 (or compatible board with onboard LED)
@@ -107,9 +107,9 @@ This project demonstrates how to use an **interrupt** on an ESP32/Pico W to meas
 The onboard LED turns on for a random interval (5–10 seconds), then turns off, signaling the user to press a button. The time between the LED turning off and the button press is measured and printed in milliseconds.
 
 <b>Files:</b>
-- **main.py** – Uses an LED, button, and interrupt to measure reaction time.
-- **diagram.json** – Wokwi wiring diagram showing LED and button connections.
-- **wokwi-project.txt** – Wokwi project link.
+- **main.py** &mdash; Uses an LED, button, and interrupt to measure reaction time.
+- **diagram.json** &mdash; Wokwi wiring diagram showing LED and button connections.
+- **wokwi-project.txt** &mdash; Wokwi project link.
 
 <b>Hardware:</b>
 - ESP32 or Raspberry Pi Pico W
@@ -132,6 +132,88 @@ The onboard LED turns on for a random interval (5–10 seconds), then turns off,
 - LED turns on for 5–10 seconds, then turns off.
 - User presses button after LED goes off.
 - Serial console prints: `"Your reaction time was X milliseconds"` followed by `"Program complete."`
+
+---
+
+<b>traffic_lights</b>
+
+<b>Overview:</b>
+This project simulates a traffic light system using an ESP32 with three LEDs (red, yellow, green), a push button, and a buzzer.  
+- The traffic light sequence runs automatically in a loop.  
+- When the button is pressed, the red light turns on and the buzzer sounds for a short period.  
+
+<b>Files:</b>
+- **main.py** &mdash; Controls the traffic light sequence, button detection, and buzzer beep.
+- **diagram.json** &mdash; Wokwi wiring diagram showing LEDs, button, and buzzer connections.
+- **wokwi-project.txt** &mdash; Wokwi project link.
+
+<b>Hardware:</b>
+- ESP32
+- 3 LEDs (red, yellow, green)
+- 3 resistors (220–330 Ω)
+- Push button
+- Buzzer
+- Jumper wires
+
+<b>Wiring:</b>
+1. Connect each LED anode to GPIO pins:  
+   - Red to GPIO15  
+   - Yellow to GPIO14  
+   - Green to GPIO13  
+   Each LED goes through a resistor to GND.  
+2. Connect button to GPIO16 with internal pull-down enabled.  
+3. Connect buzzer to GPIO12 with GND.
+
+<b>How to run (Wokwi):</b>
+1. Open Wokwi and load the project using `wokwi-project.txt` or `diagram.json`.
+2. Run the simulation.  
+3. Observe the traffic light sequence: red → red+yellow → green → yellow.  
+4. Press the button to trigger the buzzer and red light.
+
+<b>Expected behavior:</b>
+- LEDs cycle through the traffic light pattern with the configured timings:  
+  - Red: 2 s  
+  - Red + Yellow: 2 s  
+  - Green: 5 s  
+  - Yellow: 2 s  
+- Pressing the button:  
+  - Red LED turns on  
+  - Buzzer sounds for ~2 seconds  
+  - Sequence continues normally after.
+
+---
+
+<b>turn_led_on_with_button</b>
+
+<b>Overview:</b>
+This project demonstrates how to control an LED using a push button with an ESP32.  
+- When the button is pressed, the LED turns on.  
+- When the button is released, the LED turns off.
+
+<b>Files:</b>
+- **main.py** &mdash; Reads button state and controls the LED accordingly.
+- **diagram.json** &mdash; Wokwi wiring diagram showing LED and button connections.
+- **wokwi-project.txt** &mdash; Wokwi project link.
+
+<b>Hardware:</b>
+- ESP32
+- LED
+- 220–330 Ω resistor for LED
+- Push button
+- Jumper wires
+
+<b>Wiring:</b>
+1. Connect LED anode to GPIO18 via a resistor; cathode to GND.  
+2. Connect button to GPIO13; internal pull-up is enabled in code.
+
+<b>How to run (Wokwi):</b>
+1. Open Wokwi and load the project using `wokwi-project.txt` or `diagram.json`.  
+2. Run the simulation.  
+3. Press the button: LED should turn on while pressed and off when released.
+
+<b>Expected behavior:</b>
+- LED turns ON when button is pressed (button value = 0 due to pull-up).  
+- LED turns OFF when button is released.
 
 ---
 
@@ -158,7 +240,39 @@ This project uses a DHT22 sensor to measure temperature and humidity. The values
 <li>Open the serial console to see temperature and humidity readings.</li>
 </ol>
 
+---
 
+<b>weather_station_with_backend</b>
 
+<b>Overview:</b>
+This project extends the basic weather station by connecting the ESP32 to Wi-Fi and sending sensor data to ThingSpeak.  
+- Reads temperature and humidity from a DHT22 sensor.  
+- Sends data to ThingSpeak every 15 seconds.  
+- Prints sensor readings and ThingSpeak responses to the serial console.
 
+<b>Files:</b>
+- **main.py** &mdash; Reads DHT22 sensor and posts data to ThingSpeak.  
+- **diagram.json** &mdash; Wokwi wiring diagram showing DHT22 sensor connections.  
+- **wokwi-project.txt** &mdash; Wokwi project link.
 
+<b>Hardware:</b>
+- ESP32
+- DHT22 sensor
+- Jumper wires
+- Breadboard (optional)
+
+<b>Wiring:</b>
+1. Connect DHT22 data pin to GPIO15 on ESP32.  
+2. Connect DHT22 VCC to 3.3V and GND to ground.  
+3. Use a pull-up resistor (typically 4.7k–10k Ω) between VCC and data pin if required.
+
+<b>How to run (Wokwi):</b>
+1. Open Wokwi and load the project using `wokwi-project.txt` or `diagram.json`.  
+2. Run the simulation.  
+3. Observe temperature and humidity printed in the console.  
+4. Check ThingSpeak channel to see the data updates (simulation may not send real HTTP requests).
+
+<b>Expected behavior:</b>
+- Every 15 seconds, the ESP32 measures temperature and humidity.  
+- Sends a POST request to ThingSpeak with `field1` = temperature, `field2` = humidity.  
+- Console prints readings and ThingSpeak server response.
