@@ -169,7 +169,8 @@ This project demonstrates real-time **bidirectional communication** between a se
 - Useful for IoT applications that require **instant updates** or chat-like interactions.
 
 <b>Files:</b>
-- **client.html** &mdash; Web page for sending and receiving messages via WebSocket.  
+- **client.html** &mdash; Web page for sending and receiving messages via WebSocket.
+- **dashboard.hmtl** &mdash; HTML page that connects to a WebSocket server and displays live sensor data.
 - **server2.js** &mdash; Node.js WebSocket server using the `ws` library.  
 - **package.json / package-lock.json / node_modules** &mdash; Node.js dependencies.
 
