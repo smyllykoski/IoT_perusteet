@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Real-time Dashboard</title>
+  </head>
+  <body>
+    <h1>Real-time Temperature Dashboard</h1>
+    <div id="log"></div>
+
+    <script>
+      const logDiv = document.getElementById('log');
+      const ws = new WebSocket('ws://localhost:8080');
+
+      ws.onopen = () => {
+        logDiv.innerHTML += "<p>Connected to server</p>";
+      };
+
+      ws.onmessage = event => {
+        const data = JSON.parse(event.data);
+        logDiv.innerHTML += `<p>${data.timestamp}: Temp=${data.temperature}°C, Humidity=${data.humidity}%</p>`;
+      };
+    </script>
+  </body>
+</html>
